@@ -39,9 +39,15 @@ chmod +rx /usr/local/bin/bd
 echo 'alias bd=". bd -si"' >> ~/.bashrc
 source ~/.bashrc
 
-# If you need autocomplete support, follow these two steps
-wget -O /etc/bash_completion.d/bd https://raw.github.com/vigneshwaranr/bd/master/bash_completion.d/bd
+# If you need autocomplete support, follow these steps:
+
+# bash
+wget -O /etc/bash_completion.d/bd https://raw.github.com/vigneshwaranr/bd/master/completions/bd-completion.bash
 source /etc/bash_completion.d/bd
+
+# zsh
+wget -O /usr/share/zsh/site-functions/_bd https://raw.github.com/vigneshwaranr/bd/master/completions/bd-completion.zsh
+autoload -Uz compinit && compinit
 ```
 
 To enable case-sensitive directory name matching, use `-s` instead of `-si` in the alias.
@@ -94,7 +100,7 @@ You can take advantage of that by combining <code>\`bd \<letter(s)\>\`</code> wi
 ---
 
 **Thanks:**
-* [@jaysh](https://github.com/jaysh) - Autocomplete support
+* [@jaysh](https://github.com/jaysh), [@j-krl](https://github.com/j-krl) - Autocomplete support
 * [@rmhsilva](https://github.com/rmhsilva) - Case-Insensitive directory name matching
 * [@janosgyerik](https://github.com/janosgyerik) - Test cases, BSD support
 * [@phls](https://github.com/phls) - Packaging bd for Debian
